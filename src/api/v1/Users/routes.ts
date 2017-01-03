@@ -3,8 +3,6 @@
  */
 
 import {
-  Request,
-  IReply,
   IRouteConfiguration,
 } from 'hapi';
 
@@ -12,14 +10,18 @@ import {
   prefixRoutes,
 } from '../../../server/utils';
 
+import handlers from './handlers';
+
 const routes: IRouteConfiguration[] = [
+  {
+    method: 'GET',
+    path: '/',
+    handler: handlers.getUsers,
+  },
   {
     method: 'POST',
     path: '/login',
-    handler: (request: Request, reply: IReply) => {
-      console.log(request.payload);
-      reply({ success: true });
-    },
+    handler: handlers.login,
   },
 ];
 
