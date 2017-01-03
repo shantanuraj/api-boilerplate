@@ -6,7 +6,7 @@ import {
   Server,
 } from 'hapi';
 
-import server from './server';
+import server from './server/server';
 
 /**
  * Starts the server

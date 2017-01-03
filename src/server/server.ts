@@ -4,7 +4,7 @@
 
 import { Server } from 'hapi';
 
-import config from './config/server';
+import config from './config';
 
 const server = new Server();
 
