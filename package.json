@@ -9,6 +9,7 @@
   "devDependencies": {
     "@types/hapi": "^13.0.37",
     "@types/joi": "^10.0.0",
+    "tslint": "^4.2.0",
     "typescript": "^2.1.4"
   },
   "dependencies": {
