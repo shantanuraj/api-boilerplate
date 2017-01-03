@@ -9,6 +9,8 @@
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
     "removeComments": true,
     "noLib": false,
     "preserveConstEnums": true,

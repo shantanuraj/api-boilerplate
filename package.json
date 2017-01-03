@@ -6,6 +6,11 @@
   "repository": "https://github.com/shantanuraj/api-boilerplate.git",
   "author": "Shantanu Raj <s@sraj.me>",
   "license": "MIT",
+  "scripts": {
+    "compile": "tsc",
+    "prestart": "npm run compile",
+    "start": "node ."
+  },
   "devDependencies": {
     "@types/hapi": "^13.0.37",
     "@types/joi": "^10.0.0",
