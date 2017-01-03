@@ -5,9 +5,12 @@
 import { Server } from 'hapi';
 
 import config from './config';
+import plugins from './plugins';
 
-const server = new Server();
+export default async (): Promise<Server> => {
+  const server = new Server();
 
-server.connection(config);
-
-export default server;
+  server.connection(config);
+  await server.register(plugins);
+  return server;
+};

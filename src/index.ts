@@ -6,7 +6,7 @@ import {
   Server,
 } from 'hapi';
 
-import server from './server/server';
+import getServer from './server/server';
 
 /**
  * Starts the server
@@ -16,4 +16,5 @@ const start = async (server: Server) => {
   console.log(`Server running at ${server.info.uri}`);
 };
 
-start(server);
+getServer()
+  .then(start);
