@@ -2,9 +2,7 @@
  * Instantiates and runs a server
  */
 
-import {
-  Server,
-} from 'hapi';
+import { Server } from 'hapi';
 
 import getServer from './server/server';
 
@@ -16,5 +14,4 @@ const start = async (server: Server) => {
   console.log(`Server running at ${server.info.uri}`);
 };
 
-getServer()
-  .then(start);
+getServer().then(start);

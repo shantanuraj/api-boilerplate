@@ -2,11 +2,9 @@
  * Server configuration
  */
 
-import {
-  ServerOptions,
-} from 'hapi';
+import { ServerOptions } from 'hapi';
 
-const config : ServerOptions = {
+const config: ServerOptions = {
   port: process.env.PORT || 3000,
 };
 

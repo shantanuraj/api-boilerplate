@@ -2,15 +2,11 @@
  * User routes
  */
 
-import {
-  ServerRoute,
-} from 'hapi';
+import { ServerRoute } from 'hapi';
 
 import * as Joi from 'joi';
 
-import {
-  prefixRoutes,
-} from '../../../server/utils';
+import { prefixRoutes } from '../../../server/utils';
 
 import handlers from './handlers';
 
@@ -26,8 +22,12 @@ const routes: ServerRoute[] = [
     options: {
       validate: {
         payload: {
-          username: Joi.string().required().description('Unique username of the user'),
-          password: Joi.string().required().description('Password of the user'),
+          username: Joi.string()
+            .required()
+            .description('Unique username of the user'),
+          password: Joi.string()
+            .required()
+            .description('Password of the user'),
         },
       },
     },

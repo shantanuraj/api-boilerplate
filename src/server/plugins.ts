@@ -2,9 +2,7 @@
  * Plugins for server
  */
 
-import {
-  ServerRegisterPluginObject,
-} from 'hapi';
+import { ServerRegisterPluginObject } from 'hapi';
 
 const goodOptions = {
   ops: { interval: 1000 },

@@ -2,10 +2,7 @@
  * User route handlers
  */
 
-import {
-  Request,
-  ResponseToolkit,
-} from 'hapi';
+import { Request, ResponseToolkit } from 'hapi';
 
 const handlers = {
   // h is an optional parameter
@@ -15,7 +12,7 @@ const handlers = {
 
   login: (request: Request) => {
     console.log(request.payload);
-    return ({ success: true });
+    return { success: true };
   },
 };
 

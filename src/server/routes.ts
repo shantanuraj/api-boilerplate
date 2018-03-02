@@ -4,25 +4,17 @@
 
 import * as fs from 'fs';
 
-import {
-  ServerRoute,
-} from 'hapi';
+import { ServerRoute } from 'hapi';
 
-import {
-  flatten,
-} from 'ramda';
+import { flatten } from 'ramda';
 
 // We're using the 'glob' module here as we'll later use
 // a directory deep-search wildcard.
 import { sync as glob } from 'glob';
 
-import {
-  join as joinPaths,
-} from 'path';
+import { join as joinPaths } from 'path';
 
-import {
-  prefixRoutes,
-} from './utils';
+import { prefixRoutes } from './utils';
 
 // Storing it as a constant here and then using it.
 const routeFileWildcard = joinPaths(__dirname, '..', 'api/**/**/routes.js');
@@ -34,8 +26,7 @@ const routeFilePaths = glob(routeFileWildcard);
 // they are the ones which contain the versions.
 const apiVersions = (() => {
   const apiFolderPath = joinPaths(__dirname, '..', 'api');
-  return fs.readdirSync(apiFolderPath)
-    .filter(file => fs.statSync(joinPaths(apiFolderPath, file)).isDirectory());
+  return fs.readdirSync(apiFolderPath).filter(file => fs.statSync(joinPaths(apiFolderPath, file)).isDirectory());
 })();
 
 /**
@@ -47,8 +38,7 @@ const apiVersions = (() => {
  ** { "v1": [ "../Users/route.js", "../Account/routes.js" ] }
 **/
 const apiVersionRoutes = apiVersions.reduce((acc, apiVersion) => {
-  const routePaths = routeFilePaths.filter((routeFilePath) => {
-
+  const routePaths = routeFilePaths.filter(routeFilePath => {
     let versionToCheck = routeFilePath
       .replace(/.*?(?=\/api\/)/im, '')
       .replace('/api', '')
@@ -61,17 +51,13 @@ const apiVersionRoutes = apiVersions.reduce((acc, apiVersion) => {
   return { ...acc, [apiVersion]: routePaths };
 }, {});
 
-const routes: ServerRoute[] = flatten(
-  Object.keys(apiVersionRoutes).map((version) => {
-    const routeFiles  = apiVersionRoutes[version];
-    const versionRoutes = prefixRoutes(
-      version,
-      flatten(
-        routeFiles.map((routeFile) => require(routeFile).default,
-      ) as ServerRoute[],
-    ));
-    return versionRoutes;
-  }) as any[],
-) as ServerRoute[]
+const routes: ServerRoute[] = flatten(Object.keys(apiVersionRoutes).map(version => {
+  const routeFiles = apiVersionRoutes[version];
+  const versionRoutes = prefixRoutes(
+    version,
+    flatten(routeFiles.map(routeFile => require(routeFile).default) as ServerRoute[]),
+  );
+  return versionRoutes;
+}) as any[]) as ServerRoute[];
 
 export default routes;
