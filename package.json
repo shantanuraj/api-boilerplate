@@ -13,20 +13,20 @@
     "start": "node ."
   },
   "devDependencies": {
-    "@types/glob": "^5.0.30",
-    "@types/hapi": "^13.0.37",
-    "@types/joi": "^10.0.0",
-    "@types/ramda": "^0.0.2",
-    "tslint": "^4.2.0",
-    "typescript": "^2.1.4"
+    "@types/glob": "^5.0.35",
+    "@types/hapi": "^17.0.4",
+    "@types/joi": "^13.0.5",
+    "@types/ramda": "^0.25.19",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
   },
   "dependencies": {
-    "glob": "^7.1.1",
-    "good": "^7.1.0",
-    "good-console": "^6.2.0",
-    "good-squeeze": "^5.0.1",
-    "hapi": "^16.1.0",
-    "joi": "^10.1.0",
-    "ramda": "^0.23.0"
+    "glob": "^7.1.2",
+    "good": "^8.1.0",
+    "good-console": "^7.1.0",
+    "good-squeeze": "^5.0.2",
+    "hapi": "^17.2.1",
+    "joi": "^13.1.2",
+    "ramda": "^0.25.0"
   }
 }
