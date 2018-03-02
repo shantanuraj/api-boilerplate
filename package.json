@@ -6,9 +6,23 @@
   "repository": "https://github.com/shantanuraj/api-boilerplate.git",
   "author": "Shantanu Raj <s@sraj.me>",
   "license": "MIT",
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "tabWidth": 2
+  },
   "scripts": {
+    "precommit": "lint-staged",
     "compile": "tsc",
     "lint": "tslint --project tsconfig.json -c tslint.json",
+    "format": "prettier --write \"src/**/*.ts\"",
     "prestart": "npm run compile && npm run lint",
     "start": "node ."
   },
@@ -18,6 +32,9 @@
     "@types/joi": "^13.0.5",
     "@types/node": "^9.4.6",
     "@types/ramda": "^0.25.19",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "1.11.1",
     "tslint": "^5.9.1",
     "typescript": "^2.7.2"
   },
