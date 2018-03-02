@@ -4,17 +4,18 @@
 
 import {
   Request,
-  IReply,
+  ResponseToolkit,
 } from 'hapi';
 
 const handlers = {
-  getUsers: (request: Request, reply: IReply) => {
-    reply(request.query);
+  // h is an optional parameter
+  getUsers: (request: Request, _h: ResponseToolkit) => {
+    return request.query;
   },
 
-  login: (request: Request, reply: IReply) => {
+  login: (request: Request) => {
     console.log(request.payload);
-    reply({ success: true });
+    return ({ success: true });
   },
 };
 

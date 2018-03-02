@@ -3,10 +3,10 @@
  */
 
 import {
-  IServerConnectionOptions,
+  ServerOptions,
 } from 'hapi';
 
-const config : IServerConnectionOptions = {
+const config : ServerOptions = {
   port: process.env.PORT || 3000,
 };
 

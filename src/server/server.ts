@@ -9,9 +9,7 @@ import plugins from './plugins';
 import routes from './routes';
 
 export default async (): Promise<Server> => {
-  const server = new Server();
-
-  server.connection(config);
+  const server = new Server(config);
   await server.register(plugins);
   server.route(routes);
   return server;

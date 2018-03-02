@@ -3,15 +3,15 @@
  */
 
 import {
-  IRouteConfiguration,
+  ServerRoute,
 } from 'hapi';
 
 /**
  * Simple function to prefix routes with a given string
  * to reduce redundancy in route definitions.
  */
-const prefixRoute = (prefix: string, route: IRouteConfiguration)
-  : IRouteConfiguration => {
+const prefixRoute = (prefix: string, route: ServerRoute)
+  : ServerRoute => {
 
   const trimmedPath = (
     route.path.length > 1 && route.path.endsWith('/')
@@ -23,7 +23,7 @@ const prefixRoute = (prefix: string, route: IRouteConfiguration)
 /**
  * Convinence function to prefix an array of routes.
  */
-export const prefixRoutes = (prefix: string, routes: IRouteConfiguration[])
- : IRouteConfiguration[] => {
+export const prefixRoutes = (prefix: string, routes: ServerRoute[])
+ : ServerRoute[] => {
   return routes.map(route => prefixRoute(prefix, route));
 };

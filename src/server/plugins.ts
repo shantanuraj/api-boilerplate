@@ -2,7 +2,9 @@
  * Plugins for server
  */
 
-const Good = require('good');
+import {
+  ServerRegisterPluginObject,
+} from 'hapi';
 
 const goodOptions = {
   ops: { interval: 1000 },
@@ -11,7 +13,7 @@ const goodOptions = {
       {
         module: 'good-squeeze',
         name: 'Squeeze',
-        args: [{ log: '*', response: '*' }]
+        args: [{ log: '*', response: '*' }],
       },
       { module: 'good-console' },
       'stdout',
@@ -19,9 +21,11 @@ const goodOptions = {
   },
 };
 
-export default [
+const plugins: ServerRegisterPluginObject<any>[] = [
   {
-    register: Good,
+    plugin: require('good'),
     options: goodOptions,
   },
 ];
+
+export default plugins;

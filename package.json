@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "compile": "tsc",
-    "lint": "tslint --project tsconfig.json -c tslint.json .",
+    "lint": "tslint --project tsconfig.json -c tslint.json",
     "prestart": "npm run compile && npm run lint",
     "start": "node ."
   },

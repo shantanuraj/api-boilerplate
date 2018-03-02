@@ -3,7 +3,7 @@
  */
 
 import {
-  IRouteConfiguration,
+  ServerRoute,
 } from 'hapi';
 
 import * as Joi from 'joi';
@@ -14,7 +14,7 @@ import {
 
 import handlers from './handlers';
 
-const routes: IRouteConfiguration[] = [
+const routes: ServerRoute[] = [
   {
     method: 'GET',
     path: '/',
@@ -23,7 +23,7 @@ const routes: IRouteConfiguration[] = [
   {
     method: 'POST',
     path: '/login',
-    config: {
+    options: {
       validate: {
         payload: {
           username: Joi.string().required().description('Unique username of the user'),
