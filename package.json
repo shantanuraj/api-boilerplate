@@ -1,7 +1,7 @@
 {
   "name": "api-boilerplate",
   "version": "0.0.0",
-  "description": "API boilerplat in TypeScript using Hapi",
+  "description": "API boilerplate in TypeScript using Hapi",
   "main": "build/index.js",
   "repository": "https://github.com/shantanuraj/api-boilerplate.git",
   "author": "Shantanu Raj <s@sraj.me>",
