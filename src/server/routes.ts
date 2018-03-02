@@ -23,7 +23,6 @@ import {
 import {
   prefixRoutes,
 } from './utils';
-import { Server } from 'https';
 
 // Storing it as a constant here and then using it.
 const routeFileWildcard = joinPaths(__dirname, '..', 'api/**/**/routes.js');
